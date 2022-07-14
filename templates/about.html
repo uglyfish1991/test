@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+<!-- putting the content of base.html onto this page -->]
+
+<!-- This content is unique to this page, when rendering this page, the browser will display all the content from base.html - but fill in the gaps with this content on lines 25 -->
+{% block content %} 
+<h3>About Page</h3>
+{% for i in fav_bands %}
+<h5>{{ i }}</h5>
+{% endfor %}
+
+<!-- an example of some if logic -->
+{% if "Radiohead" in fav_bands %}
+<h4>Radiohead? What a great band</h4>
+{% endif %}
+<!-- using the variable passed through with return render_template on views page -->
+
+<form action="/about" method="post">
+    <input type="text" name="add_band" id="band_add" placeholder="Enter a band!">
+    <button type="submit">Submit a band</button>
+</form>
+{% endblock %}

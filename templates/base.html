@@ -1,0 +1,28 @@
+<!-- All the content from this page will be used as out HTML template - we will write:
+extends 'base.html' at the top of every page we want the content to appear  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'style.css')}}"> 
+    <!-- url_for is the flask syntax for urls, we can't just write a relative path -->
+    <title>Katy's page</title>
+</head>
+<body>
+    
+    <header>
+        <nav>
+            <a href="{{ url_for('my_view.home')}}">Home</a> 
+            <a href="{{ url_for('my_view.contact')}}">Contact</a>
+            <a href="{{ url_for('my_view.about')}}">About</a>
+        </nav>
+        <h1>Welcome to my website</h1>
+    </header>
+    <!-- this is the place holder section - on all our other pages, we'll insert content into this area using these blocks -->
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
